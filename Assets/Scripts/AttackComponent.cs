@@ -70,6 +70,8 @@ public class AttackComponent : MonoBehaviour
                     playerMovement.MovementSpeed = 0f;
                     lookAtMovingDirection.LookAtSpeed = 0;
 
+                    AIFire1 = false;
+
                 }
 
                 else if (AIFire2)

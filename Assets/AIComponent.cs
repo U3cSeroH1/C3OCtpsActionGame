@@ -78,17 +78,39 @@ public class AIComponent : MonoBehaviour
 
                                     return false;
                                 })
-                                .Do("ちけえからとまれ～＝", () =>
-                                {
 
-                                    Debug.Log("開けろ！デトロイト市警だ！！");
-                                    agent.speed = 0;
+                                .Selector()
 
-                                    agent.SetDestination(DetectionObjList[0].gameObject.transform.position);//NavMeshをつかってプレイヤーの位置に行く
+                                    .Sequence()
+                                        // 50% chance this will return success
+                                        .RandomChance(1, 100000)
+                                        .Do("たまに攻撃！", () =>
+                                        {
+
+                                            Debug.Log("開けろ！デトロイト市警だ！！");
+                                            agent.speed = 0;
+
+                                            attackComponent.AIFire1 = true;
+
+                                            return TaskStatus.Success;
+                                        })
+                                    .End()
+                                    .Do("ちけえからとまれ～＝", () =>
+                                    {
+
+                                        Debug.Log("開けろ！デトロイト市警だ！！");
+                                        agent.speed = 0;
+
+                                        transform.LookAt(DetectionObjList[0].transform);
 
 
-                                    return TaskStatus.Success;
-                                })
+                                        //agent.SetDestination(DetectionObjList[0].gameObject.transform.position);//NavMeshをつかってプレイヤーの位置に行く
+
+
+                                        return TaskStatus.Success;
+                                    })
+                                    .End()
+
 
                             .End()
 
@@ -160,6 +182,8 @@ public class AIComponent : MonoBehaviour
                         return false;
 
                     })
+
+                    //.WaitTime(5f)
 
                     .Do("次の場所に移動しろ", () =>
                     {
