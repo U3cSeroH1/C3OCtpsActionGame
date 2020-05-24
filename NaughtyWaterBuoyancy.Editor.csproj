@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{E73FAC2C-E261-E133-91EA-6EA07522E54E}</ProjectGuid>
+    <ProjectGuid>{104B43EF-5514-6CAD-FB17-80B8588A740C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>NaughtyWaterBuoyancy.Editor</AssemblyName>
@@ -262,13 +262,13 @@
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/16.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Unsafe">
-      <HintPath>C:/Users/qqvy4/Documents/unity_workspase/2dGame/Library/PackageCache/com.unity.burst@1.1.1/Unity.Burst.Unsafe.dll</HintPath>
+      <HintPath>I:/c3github/C3OCtpsActionGame/Library/PackageCache/com.unity.burst@1.1.1/Unity.Burst.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.NRefactory">
-      <HintPath>C:/Users/qqvy4/Documents/unity_workspase/2dGame/Library/PackageCache/com.unity.render-pipelines.core@7.3.1/Editor/ShaderGenerator/ICSharpCode.NRefactory.dll</HintPath>
+      <HintPath>I:/c3github/C3OCtpsActionGame/Library/PackageCache/com.unity.render-pipelines.core@7.3.1/Editor/ShaderGenerator/ICSharpCode.NRefactory.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-      <HintPath>C:/Users/qqvy4/Documents/unity_workspase/2dGame/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
+      <HintPath>I:/c3github/C3OCtpsActionGame/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.12f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -625,21 +625,21 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.12f1/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/Boo.Lang.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>C:/Users/qqvy4/Documents/unity_workspase/2dGame/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>I:/c3github/C3OCtpsActionGame/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Users/qqvy4/Documents/unity_workspase/2dGame/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>I:/c3github/C3OCtpsActionGame/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.TestRunner">
-      <HintPath>C:/Users/qqvy4/Documents/unity_workspase/2dGame/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
+      <HintPath>I:/c3github/C3OCtpsActionGame/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TestRunner">
-      <HintPath>C:/Users/qqvy4/Documents/unity_workspase/2dGame/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
+      <HintPath>I:/c3github/C3OCtpsActionGame/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="NaughtyWaterBuoyancy.Core.csproj">
-      <Project>{5C999BE5-E59E-AE32-88FD-D73DB0E046A9}</Project>
+      <Project>{49782AB2-97D5-515C-30FF-EAE5E82E4F79}</Project>
       <Name>NaughtyWaterBuoyancy.Core</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>

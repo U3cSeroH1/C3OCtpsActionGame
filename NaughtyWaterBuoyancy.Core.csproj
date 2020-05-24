@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{5C999BE5-E59E-AE32-88FD-D73DB0E046A9}</ProjectGuid>
+    <ProjectGuid>{49782AB2-97D5-515C-30FF-EAE5E82E4F79}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>NaughtyWaterBuoyancy.Core</AssemblyName>
@@ -269,10 +269,10 @@
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/16.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Unsafe">
-      <HintPath>C:/Users/qqvy4/Documents/unity_workspase/2dGame/Library/PackageCache/com.unity.burst@1.1.1/Unity.Burst.Unsafe.dll</HintPath>
+      <HintPath>I:/c3github/C3OCtpsActionGame/Library/PackageCache/com.unity.burst@1.1.1/Unity.Burst.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.NRefactory">
-      <HintPath>C:/Users/qqvy4/Documents/unity_workspase/2dGame/Library/PackageCache/com.unity.render-pipelines.core@7.3.1/Editor/ShaderGenerator/ICSharpCode.NRefactory.dll</HintPath>
+      <HintPath>I:/c3github/C3OCtpsActionGame/Library/PackageCache/com.unity.render-pipelines.core@7.3.1/Editor/ShaderGenerator/ICSharpCode.NRefactory.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.12f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
@@ -620,10 +620,10 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.12f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>C:/Users/qqvy4/Documents/unity_workspase/2dGame/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>I:/c3github/C3OCtpsActionGame/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Users/qqvy4/Documents/unity_workspase/2dGame/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>I:/c3github/C3OCtpsActionGame/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup></ItemGroup>
