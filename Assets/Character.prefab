@@ -1504,6 +1504,8 @@ MonoBehaviour:
   animator: {fileID: 263171291}
   attackComponent: {fileID: 1567535451}
   HP: 0
+  isAttacking: 0
+  isBlocking: 0
   takedAttack: 0
   isAI: 0
 --- !u!1 &3396442192646863283
@@ -1684,7 +1686,7 @@ PrefabInstance:
     - target: {fileID: 234048038984632725, guid: 40e6dc502591d1a40a0cc10e049898b1,
         type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 234048039846562792, guid: 40e6dc502591d1a40a0cc10e049898b1,
         type: 3}

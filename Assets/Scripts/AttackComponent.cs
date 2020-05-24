@@ -81,7 +81,7 @@ public class AttackComponent : MonoBehaviour
                     lastMovingTime = Time.realtimeSinceStartup;
 
                     animator.enabled = true;
-                    RightHandToolSlot.GetComponentInChildren<Collider>().enabled = true;
+                    LeftHandToolSlot.GetComponentInChildren<Collider>().enabled = true;
 
                     playerMovement.MovementSpeed = 0f;
                     lookAtMovingDirection.LookAtSpeed = 0;
@@ -133,7 +133,7 @@ public class AttackComponent : MonoBehaviour
                     lastMovingTime = Time.realtimeSinceStartup;
 
                     animator.enabled = true;
-                    RightHandToolSlot.GetComponentInChildren<Collider>().enabled = true;
+                    LeftHandToolSlot.GetComponentInChildren<Collider>().enabled = true;
 
                     //playerMovement.MovementSpeed = 0f;
                     lookAtMovingDirection.LookAtSpeed = 0;

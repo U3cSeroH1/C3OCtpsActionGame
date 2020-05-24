@@ -42,7 +42,7 @@ public class AIComponent : MonoBehaviour
                         .Condition("もしデテクションコーンにプレイヤーがひっかかってたら", () =>//分岐に使うやつ？？？？
                         DetectPlayer)
 
-                        .Sequence()
+                        .Selector()
 
                             .Sequence("Nested Sequence")
                                 .Condition("Custom Condition", () =>
@@ -59,6 +59,30 @@ public class AIComponent : MonoBehaviour
 
                                     Debug.Log("敵を見つけた！");
                                     agent.speed = 3;
+
+                                    agent.SetDestination(DetectionObjList[0].gameObject.transform.position);//NavMeshをつかってプレイヤーの位置に行く
+
+
+                                    return TaskStatus.Success;
+                                })
+
+                            .End()
+
+                            .Sequence("Nested Sequence")
+                                .Condition("Custom Condition", () =>
+                                {
+                                    if (Vector3.Distance(this.gameObject.transform.position, DetectionObjList[0].transform.position) < 5)
+                                    {
+                                        return true;
+                                    }
+
+                                    return false;
+                                })
+                                .Do("ちけえからとまれ～＝", () =>
+                                {
+
+                                    Debug.Log("開けろ！デトロイト市警だ！！");
+                                    agent.speed = 0;
 
                                     agent.SetDestination(DetectionObjList[0].gameObject.transform.position);//NavMeshをつかってプレイヤーの位置に行く
 
@@ -107,6 +131,16 @@ public class AIComponent : MonoBehaviour
 
                 .Sequence()//★　以下を順番に実行　実行失敗が返ってきたらこれも実行失敗になる
 
+
+                     .Do("スピードリセット", () =>
+                     {
+
+
+                         agent.speed = 2;
+
+
+                         return TaskStatus.Success;
+                     })
 
                     .Condition("探索完了した？", () =>//分岐に使うやつ？？？？？
                     {

@@ -34,7 +34,7 @@ public class NPCCharaComponent : CharacterConponent
 
                 movingDirection.enabled = true;
 
-                animator.enabled = true;
+                //animator.enabled = true;
             }
 
 
