@@ -71,7 +71,7 @@ public class AIComponent : MonoBehaviour
                             .Sequence("Nested Sequence")
                                 .Condition("Custom Condition", () =>
                                 {
-                                    if (Vector3.Distance(this.gameObject.transform.position, DetectionObjList[0].transform.position) < 5)
+                                    if ( Vector3.Distance(this.gameObject.transform.position, DetectionObjList[0].transform.position) < 5  &&  Vector3.Distance(this.gameObject.transform.position, DetectionObjList[0].transform.position) >= 3)
                                     {
                                         return true;
                                     }
@@ -81,20 +81,9 @@ public class AIComponent : MonoBehaviour
 
                                 .Selector()
 
-                                    .Sequence()
-                                        // 50% chance this will return success
-                                        .RandomChance(1, 100000)
-                                        .Do("たまに攻撃！", () =>
-                                        {
 
-                                            Debug.Log("開けろ！デトロイト市警だ！！");
-                                            agent.speed = 0;
 
-                                            attackComponent.AIFire1 = true;
 
-                                            return TaskStatus.Success;
-                                        })
-                                    .End()
                                     .Do("ちけえからとまれ～＝", () =>
                                     {
 
@@ -103,14 +92,63 @@ public class AIComponent : MonoBehaviour
 
                                         transform.LookAt(DetectionObjList[0].transform);
 
+                                        int index = Random.Range(0, 250);
+                                        Debug.Log(index);
 
-                                        //agent.SetDestination(DetectionObjList[0].gameObject.transform.position);//NavMeshをつかってプレイヤーの位置に行く
+                                        if (index == 0)
+                                        {
+                                            attackComponent.AIFire1 = true;
+
+
+                                            return TaskStatus.Continue;
+                                        }
+
+                                        attackComponent.AIFire1 = false;
 
 
                                         return TaskStatus.Success;
                                     })
+
+
+                                    //.RandomChance(1, 10000000)
+
+
+
                                     .End()
 
+                            .End()
+
+                            .Sequence("Nested Sequence")
+                                .Condition("Custom Condition", () =>
+                                {
+                                    if (Vector3.Distance(this.gameObject.transform.position, DetectionObjList[0].transform.position) < 3)
+                                    {
+                                        return true;
+                                    }
+
+                                    return false;
+                                })
+
+                                .Selector()
+
+
+
+
+                                    .Do("近すぎるンゴ！＝", () =>
+                                    {
+                                        agent.SetDestination(new Vector3(33,2,-53.35f));
+
+                                        transform.LookAt(DetectionObjList[0].transform);
+
+                                        return TaskStatus.Continue;
+                                    })
+
+
+                                    //.RandomChance(1, 10000000)
+
+
+
+                                    .End()
 
                             .End()
 

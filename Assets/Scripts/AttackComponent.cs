@@ -66,6 +66,8 @@ public class AttackComponent : MonoBehaviour
                     animator.enabled = true;
                     RightHandToolSlot.GetComponentInChildren<Collider>().enabled = true;
 
+                    
+
 
                     playerMovement.MovementSpeed = 0f;
                     lookAtMovingDirection.LookAtSpeed = 0;
