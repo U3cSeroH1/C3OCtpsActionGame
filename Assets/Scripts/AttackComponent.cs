@@ -53,7 +53,7 @@ public class AttackComponent : MonoBehaviour
 
 
 
-                lookAtMovingDirection.LookAtSpeed = 10f;
+                //lookAtMovingDirection.LookAtSpeed = 10f;
 
                 if (AIFire1)
                 {
@@ -70,7 +70,7 @@ public class AttackComponent : MonoBehaviour
 
 
                     playerMovement.MovementSpeed = 0f;
-                    lookAtMovingDirection.LookAtSpeed = 0;
+                    //lookAtMovingDirection.LookAtSpeed = 0;
 
                     AIFire1 = false;
 
@@ -88,7 +88,7 @@ public class AttackComponent : MonoBehaviour
                     LeftHandToolSlot.GetComponentInChildren<Collider>().enabled = true;
 
                     playerMovement.MovementSpeed = 0f;
-                    lookAtMovingDirection.LookAtSpeed = 0;
+                    //lookAtMovingDirection.LookAtSpeed = 0;
                 }
 
 

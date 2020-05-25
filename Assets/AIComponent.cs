@@ -12,10 +12,10 @@ public class AIComponent : MonoBehaviour
 
     public Collider DetectionCone = null;
     public List<GameObject> DetectionObjList = new List<GameObject>();
+
     public bool DetectPlayer = false;
     public bool CautionPlayer = false;
 
-    public CharacterConponent characterComponent = null;
     public AttackComponent attackComponent = null;
 
 
@@ -92,18 +92,21 @@ public class AIComponent : MonoBehaviour
 
                                         transform.LookAt(DetectionObjList[0].transform);
 
+                                        agent.SetDestination(DetectionObjList[0].gameObject.transform.position);
+
+
                                         int index = Random.Range(0, 250);
                                         Debug.Log(index);
 
                                         if (index == 0)
                                         {
-                                            attackComponent.AIFire1 = true;
+                                            //attackComponent.AIFire1 = true;
 
 
                                             return TaskStatus.Continue;
                                         }
 
-                                        attackComponent.AIFire1 = false;
+                                        //attackComponent.AIFire1 = false;
 
 
                                         return TaskStatus.Success;
@@ -136,11 +139,15 @@ public class AIComponent : MonoBehaviour
 
                                     .Do("近すぎるンゴ！＝", () =>
                                     {
-                                        agent.SetDestination(new Vector3(33,2,-53.35f));
+                                        //agent.SetDestination(DetectionObjList[0].gameObject.transform.position + new Vector3(2,2,2));
+
+                                        //Instantiate(GameObject.CreatePrimitive(PrimitiveType.Cylinder), DetectionObjList[0].gameObject.transform.position + new Vector3(2, 2, 2), Quaternion.identity);
+
+                                        agent.speed = 0f;
 
                                         transform.LookAt(DetectionObjList[0].transform);
 
-                                        return TaskStatus.Continue;
+                                        return TaskStatus.Success;
                                     })
 
 
@@ -203,23 +210,12 @@ public class AIComponent : MonoBehaviour
                      })
 
                     .Condition("探索完了した？", () =>//分岐に使うやつ？？？？？
-                    {
+                    
+
+                        ReachDistenation()
 
 
-                        if (!agent.pathPending)
-                        {
-                            if (agent.remainingDistance <= agent.stoppingDistance)
-                            {
-                                if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)//ここまでチェックポイントに到着したかの判断
-                                {
-
-                                    return true;
-                                }
-                            }
-                        }
-                        return false;
-
-                    })
+                    )
 
                     //.WaitTime(5f)
 
@@ -289,6 +285,22 @@ public class AIComponent : MonoBehaviour
             CautionPlayer = true;
         }
 
+    }
+
+    public bool ReachDistenation()
+    {
+        if (!agent.pathPending)
+        {
+            if (agent.remainingDistance <= agent.stoppingDistance)
+            {
+                if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)//ここまでチェックポイントに到着したかの判断
+                {
+
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     void GotoNextPoint()
