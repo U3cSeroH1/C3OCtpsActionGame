@@ -47,7 +47,7 @@ public class AIComponent : MonoBehaviour
                             .Sequence("Nested Sequence")
                                 .Condition("Custom Condition", () =>
                                 {
-                                    if(Vector3.Distance(this.gameObject.transform.position, DetectionObjList[0].transform.position) >= 5)
+                                    if(Vector3.Distance(this.gameObject.transform.position, DetectionObjList[0].transform.position) >= 4)
                                     {
                                         return true;
                                     }
@@ -71,7 +71,7 @@ public class AIComponent : MonoBehaviour
                             .Sequence("Nested Sequence")
                                 .Condition("Custom Condition", () =>
                                 {
-                                    if ( Vector3.Distance(this.gameObject.transform.position, DetectionObjList[0].transform.position) < 5  &&  Vector3.Distance(this.gameObject.transform.position, DetectionObjList[0].transform.position) >= 3)
+                                    if ( Vector3.Distance(this.gameObject.transform.position, DetectionObjList[0].transform.position) < 4  &&  Vector3.Distance(this.gameObject.transform.position, DetectionObjList[0].transform.position) >= 3)
                                     {
                                         return true;
                                     }
@@ -96,17 +96,17 @@ public class AIComponent : MonoBehaviour
 
 
                                         int index = Random.Range(0, 250);
-                                        Debug.Log(index);
+                                        //Debug.Log(index);
 
                                         if (index == 0)
                                         {
-                                            //attackComponent.AIFire1 = true;
+                                            attackComponent.AIFire1 = true;
 
 
                                             return TaskStatus.Continue;
                                         }
 
-                                        //attackComponent.AIFire1 = false;
+                                        attackComponent.AIFire1 = false;
 
 
                                         return TaskStatus.Success;
@@ -146,6 +146,20 @@ public class AIComponent : MonoBehaviour
                                         agent.speed = 0f;
 
                                         transform.LookAt(DetectionObjList[0].transform);
+
+                                        int index = Random.Range(0, 250);
+                                        //Debug.Log(index);
+
+                                        if (index == 0)
+                                        {
+                                            attackComponent.AIFire1 = true;
+
+
+                                            return TaskStatus.Continue;
+                                        }
+
+                                        attackComponent.AIFire1 = false;
+
 
                                         return TaskStatus.Success;
                                     })

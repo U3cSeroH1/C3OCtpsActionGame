@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1109865252}
   - component: {fileID: 1109865251}
   - component: {fileID: 1109865255}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: DetectionCone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -718,7 +718,7 @@ GameObject:
   - component: {fileID: 4210678683230109719}
   - component: {fileID: 4210678683230109721}
   - component: {fileID: 5817420400324662823}
-  - component: {fileID: 6818262278875738641}
+  - component: {fileID: 1168892096}
   m_Layer: 0
   m_Name: TestEnemy
   m_TagString: Untagged
@@ -834,10 +834,10 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 1
+  m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6818262278875738641
+--- !u!114 &1168892096
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -846,10 +846,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 7225182986675597754}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8509d1eb74132c047bfd037961fba936, type: 3}
+  m_Script: {fileID: 11500000, guid: b788408cacec06145b8a925846a472d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fuckthis: {fileID: 7225182986675597754}
   character: {fileID: 11400000, guid: e0715607c5c161040862cd359521f09f, type: 2}
+  HP: 0
+  ST: 0
+  MP: 0
+  TakedDamage: 0
+  animator: {fileID: 4210678683230109723}
+  navMesh: {fileID: 4210678683230109721}
+  aIComponent: {fileID: 4210678683230109719}
 --- !u!1001 &1584856602174702919
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -920,16 +928,21 @@ PrefabInstance:
     - target: {fileID: 234048038984632725, guid: 40e6dc502591d1a40a0cc10e049898b1,
         type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 234048039846562793, guid: 40e6dc502591d1a40a0cc10e049898b1,
         type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 234048040168538701, guid: 40e6dc502591d1a40a0cc10e049898b1,
         type: 3}
       propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 234048040168538703, guid: 40e6dc502591d1a40a0cc10e049898b1,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

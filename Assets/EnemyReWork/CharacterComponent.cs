@@ -23,10 +23,22 @@ public class CharacterComponent : MonoBehaviour
 
 
     public Animator animator = null;
+    public AttackComponent attackComponent = null;
+
+
+
+    /*        Playerのとき          */
+    public LookAtMovingDirection lookAtMovingDirection = null;
+    public PlayerMovement playerMovement = null;
+
+
 
     /*        AIのとき          */
     public NavMeshAgent navMesh = null;
     public AIComponent aIComponent = null;
+
+
+
 
 
     private void Start()
@@ -51,25 +63,32 @@ public class CharacterComponent : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponentInParent<ItemComponent>().ItemType.itemtype == Item.ItemType.ToolItem)
+
+        if (other.gameObject.GetComponentInParent<ItemComponent>() && (other.gameObject.transform.root.gameObject != this.gameObject) && !TakedDamage)//ぶつかったやつがちゃんとItemで自打球じゃなくてノックバックしてない時
         {
 
-            HP -= other.gameObject.GetComponentInParent<ItemComponent>().ItemType.attack;
+            if (other.gameObject.GetComponentInParent<ItemComponent>().ItemType.itemtype == Item.ItemType.ToolItem)
+            {
+                animator.SetTrigger("TakeDamage");
 
-            FlipStateComponentsForStaticMotion();
+                HP -= other.gameObject.GetComponentInParent<ItemComponent>().ItemType.attack;
 
-            KnockBackCalc(other.gameObject);
+                FlipStateComponentsForStaticMotion();
 
 
+
+                KnockBackCalc(other.gameObject);
+
+
+            }
         }
-
     }
 
 
 
     private float count;
 
-    public bool Waiter(string function, float time)
+    public bool Waiter(string function, float time)//ノックバックとか攻撃時とかにこれ使って何もできない時間作れ
     {
         count += Time.deltaTime;
 
@@ -94,25 +113,21 @@ public class CharacterComponent : MonoBehaviour
 
 
 
-    public void FlipStateComponentsForStaticMotion()
+    public virtual void FlipStateComponentsForStaticMotion()
     {
 
-        this.gameObject.GetComponent<Rigidbody>().isKinematic = !this.gameObject.GetComponent<Rigidbody>().isKinematic;
-
-        animator.enabled = !animator.enabled;
-
-        TakedDamage = !TakedDamage;
-
-        navMesh.enabled = !navMesh.enabled;
-        aIComponent.enabled = !aIComponent.enabled;
         
-    }
+
+    }//AI用！！！ゆくゆくはオーバーライドで分岐させてけ
+
 
 
     public void KnockBackCalc(GameObject other)
     {
         //吹き飛ばす方向を求める(プレイヤーから触れたものの方向)
         Vector3 toVec = GetAngleVec(fuckthis, other);
+
+        //Debug.Log(toVec);
 
         //Y方向を足す
         toVec = toVec + new Vector3(0, -0.5f, 0);

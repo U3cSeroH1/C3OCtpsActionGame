@@ -48,6 +48,9 @@ public class AttackComponent : MonoBehaviour
 
         if (isAI)
         {
+
+
+
             if (Time.realtimeSinceStartup - lastMovingTime > CoolTime)
             {
 
@@ -60,13 +63,21 @@ public class AttackComponent : MonoBehaviour
 
                     ///playerMovement.
                     ///
-                    animator.SetTrigger("LightAction");
+                    
                     lastMovingTime = Time.realtimeSinceStartup;
 
+
                     animator.enabled = true;
+
+                    animator.SetBool("TakeDamage", false);
+
+                    animator.SetTrigger("LightAction");
+
+
+
                     RightHandToolSlot.GetComponentInChildren<Collider>().enabled = true;
 
-                    
+                    Debug.Log("攻撃AIl");
 
 
                     playerMovement.MovementSpeed = 0f;
@@ -116,10 +127,17 @@ public class AttackComponent : MonoBehaviour
 
                     ///playerMovement.
                     ///
-                    animator.SetTrigger("LightAction");
+             
                     lastMovingTime = Time.realtimeSinceStartup;
 
+                    Debug.Log("攻撃PLy");
+
                     animator.enabled = true;
+
+                    animator.SetBool("TakeDamage", false);
+
+                    animator.SetTrigger("LightAction");
+
                     RightHandToolSlot.GetComponentInChildren<Collider>().enabled = true;
 
 
