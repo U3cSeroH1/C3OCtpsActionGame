@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class AttackComponent : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class AttackComponent : MonoBehaviour
     public GameObject LeftHandToolSlot = null;
 
     public bool isAI = false;
-
+    public NavMeshAgent navMeshAgent = null;
 
     public bool AIFire1 = false;
     public bool AIFire2 = false;
@@ -66,6 +67,8 @@ public class AttackComponent : MonoBehaviour
                     
                     lastMovingTime = Time.realtimeSinceStartup;
 
+                    navMeshAgent.enabled = false;
+
 
                     animator.enabled = true;
 
@@ -108,7 +111,7 @@ public class AttackComponent : MonoBehaviour
 
             else
             {
-
+                //navMeshAgent.enabled = true;
 
             }
         }
@@ -181,6 +184,14 @@ public class AttackComponent : MonoBehaviour
         animator.enabled = !animator.enabled;
 
         AttackingCollision();
+
+        if (isAI)
+        {
+            navMeshAgent.enabled = true;
+        }
+
+
+
     }
 
 
