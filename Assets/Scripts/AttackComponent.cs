@@ -183,9 +183,16 @@ public class AttackComponent : MonoBehaviour
     }
 
 
+
+
+
+
+
+
+
     public void animaterDisabled()
     {
-        animator.enabled = !animator.enabled;
+        animator.enabled = false;
 
         AttackingCollision();
 
