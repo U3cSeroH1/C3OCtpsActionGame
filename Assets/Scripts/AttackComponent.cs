@@ -18,6 +18,10 @@ public class AttackComponent : MonoBehaviour
 
     public GameObject LeftHandToolSlot = null;
 
+
+    public bool isBlocking = false;
+
+
     public bool isAI = false;
     public NavMeshAgent navMeshAgent = null;
 
@@ -95,6 +99,9 @@ public class AttackComponent : MonoBehaviour
 
                     ///playerMovement.
                     ///
+
+                    isBlocking = !isBlocking;
+
                     animator.SetTrigger("RightAction");
                     lastMovingTime = Time.realtimeSinceStartup;
 
@@ -148,31 +155,28 @@ public class AttackComponent : MonoBehaviour
                     lookAtMovingDirection.LookAtSpeed = 0;
 
                 }
-
-                else if (Input.GetButtonDown("Fire2"))
-                {
-
-                    ///playerMovement.
-                    ///
-                    animator.SetTrigger("RightAction");
-                    lastMovingTime = Time.realtimeSinceStartup;
-
-                    animator.enabled = true;
-                    LeftHandToolSlot.GetComponentInChildren<Collider>().enabled = true;
-
-                    //playerMovement.MovementSpeed = 0f;
-                    lookAtMovingDirection.LookAtSpeed = 0;
-                }
-
-
-
             }
 
+            if (Input.GetAxis("Fire2") == 1)
+            {
+                isBlocking = true;
+                ///playerMovement.
+                ///
+                animator.SetBool("RightAction", true);
+                lastMovingTime = Time.realtimeSinceStartup;
+
+                animator.enabled = true;
+                LeftHandToolSlot.GetComponentInChildren<Collider>().enabled = true;
+
+                //playerMovement.MovementSpeed = 0f;
+                lookAtMovingDirection.LookAtSpeed = 0;
+            }
             else
             {
-
-
+                animator.SetBool("RightAction", false);
+                isBlocking = false;
             }
+
         }
 
         //animator.enabled = false;

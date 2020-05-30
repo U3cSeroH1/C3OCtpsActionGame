@@ -69,6 +69,7 @@ public class CharacterComponent : MonoBehaviour
 
             if (other.gameObject.GetComponentInParent<ItemComponent>().ItemType.itemtype == Item.ItemType.ToolItem)
             {
+
                 animator.SetTrigger("TakeDamage");
 
                 HP -= other.gameObject.GetComponentInParent<ItemComponent>().ItemType.attack;
@@ -81,6 +82,7 @@ public class CharacterComponent : MonoBehaviour
 
 
             }
+                        
         }
     }
 
