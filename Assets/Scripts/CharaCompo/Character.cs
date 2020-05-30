@@ -1,22 +1,25 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+
 
 
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
 
-[Serializable]
-[CreateAssetMenu(fileName = "Character", menuName = "CreateCharacter")]
+[CreateAssetMenu(fileName = "Character", menuName = "ScriptableObjects/CreateCharacter", order = 1)]
+
 public class Character : ScriptableObject
 {
 
-    [SerializeField]
-    public string CharaName;
-    [SerializeField]
     public float HP;
+    public float ST;
+    public float MP;
+
+
+
 
 #if UNITY_EDITOR
     //-------------------------------------------------------------------------

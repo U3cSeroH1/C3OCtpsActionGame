@@ -66,14 +66,14 @@
     <Compile Include="Assets\AIComponent.cs" />
     <Compile Include="Assets\DotShader\Examples\Common\Rotate.cs" />
     <Compile Include="Assets\DotShader\Examples\Pixelate\PixelateController.cs" />
+    <Compile Include="Assets\EnemyReWork\CharacterComponent.cs" />
+    <Compile Include="Assets\EnemyReWork\EnemyCharacterComponent.cs" />
+    <Compile Include="Assets\EnemyReWork\PlayerCharacterComponent.cs" />
     <Compile Include="Assets\Mixamo\Melee Axe Pack\Demo\CameraScroll.cs" />
     <Compile Include="Assets\MovementVR.cs" />
     <Compile Include="Assets\Scripts\AttackComponent.cs" />
     <Compile Include="Assets\Scripts\CameraRotator.cs" />
     <Compile Include="Assets\Scripts\CharaCompo\Character.cs" />
-    <Compile Include="Assets\Scripts\CharaCompo\CharacterConponent.cs" />
-    <Compile Include="Assets\Scripts\CharaCompo\NPCCharaComponent.cs" />
-    <Compile Include="Assets\Scripts\CharaCompo\PlayerCharaComponent.cs" />
     <Compile Include="Assets\Scripts\DestoryObj.cs" />
     <Compile Include="Assets\Scripts\IntaractEvent\MoveObj.cs" />
     <Compile Include="Assets\Scripts\InventorySystem.cs" />

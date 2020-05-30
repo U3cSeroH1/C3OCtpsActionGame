@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class AttackComponent : MonoBehaviour
 {
@@ -17,8 +18,12 @@ public class AttackComponent : MonoBehaviour
 
     public GameObject LeftHandToolSlot = null;
 
-    public bool isAI = false;
 
+    public bool isBlocking = false;
+
+
+    public bool isAI = false;
+    public NavMeshAgent navMeshAgent = null;
 
     public bool AIFire1 = false;
     public bool AIFire2 = false;
@@ -48,29 +53,42 @@ public class AttackComponent : MonoBehaviour
 
         if (isAI)
         {
+
+
+
             if (Time.realtimeSinceStartup - lastMovingTime > CoolTime)
             {
 
 
 
-                lookAtMovingDirection.LookAtSpeed = 10f;
+                //lookAtMovingDirection.LookAtSpeed = 10f;
 
                 if (AIFire1)
                 {
 
                     ///playerMovement.
                     ///
-                    animator.SetTrigger("LightAction");
+                    
                     lastMovingTime = Time.realtimeSinceStartup;
 
+                    navMeshAgent.enabled = false;
+
+
                     animator.enabled = true;
+
+                    animator.SetBool("TakeDamage", false);
+
+                    animator.SetTrigger("LightAction");
+
+
+
                     RightHandToolSlot.GetComponentInChildren<Collider>().enabled = true;
 
-                    
+                    Debug.Log("攻撃AIl");
 
 
                     playerMovement.MovementSpeed = 0f;
-                    lookAtMovingDirection.LookAtSpeed = 0;
+                    //lookAtMovingDirection.LookAtSpeed = 0;
 
                     AIFire1 = false;
 
@@ -81,6 +99,9 @@ public class AttackComponent : MonoBehaviour
 
                     ///playerMovement.
                     ///
+
+                    isBlocking = !isBlocking;
+
                     animator.SetTrigger("RightAction");
                     lastMovingTime = Time.realtimeSinceStartup;
 
@@ -88,7 +109,7 @@ public class AttackComponent : MonoBehaviour
                     LeftHandToolSlot.GetComponentInChildren<Collider>().enabled = true;
 
                     playerMovement.MovementSpeed = 0f;
-                    lookAtMovingDirection.LookAtSpeed = 0;
+                    //lookAtMovingDirection.LookAtSpeed = 0;
                 }
 
 
@@ -97,7 +118,7 @@ public class AttackComponent : MonoBehaviour
 
             else
             {
-
+                //navMeshAgent.enabled = true;
 
             }
         }
@@ -116,10 +137,17 @@ public class AttackComponent : MonoBehaviour
 
                     ///playerMovement.
                     ///
-                    animator.SetTrigger("LightAction");
+             
                     lastMovingTime = Time.realtimeSinceStartup;
 
+                    Debug.Log("攻撃PLy");
+
                     animator.enabled = true;
+
+                    animator.SetBool("TakeDamage", false);
+
+                    animator.SetTrigger("LightAction");
+
                     RightHandToolSlot.GetComponentInChildren<Collider>().enabled = true;
 
 
@@ -127,31 +155,28 @@ public class AttackComponent : MonoBehaviour
                     lookAtMovingDirection.LookAtSpeed = 0;
 
                 }
-
-                else if (Input.GetButtonDown("Fire2"))
-                {
-
-                    ///playerMovement.
-                    ///
-                    animator.SetTrigger("RightAction");
-                    lastMovingTime = Time.realtimeSinceStartup;
-
-                    animator.enabled = true;
-                    LeftHandToolSlot.GetComponentInChildren<Collider>().enabled = true;
-
-                    //playerMovement.MovementSpeed = 0f;
-                    lookAtMovingDirection.LookAtSpeed = 0;
-                }
-
-
-
             }
 
+            if (Input.GetAxis("Fire2") == 1)
+            {
+                isBlocking = true;
+                ///playerMovement.
+                ///
+                animator.SetBool("RightAction", true);
+                lastMovingTime = Time.realtimeSinceStartup;
+
+                animator.enabled = true;
+                LeftHandToolSlot.GetComponentInChildren<Collider>().enabled = true;
+
+                //playerMovement.MovementSpeed = 0f;
+                lookAtMovingDirection.LookAtSpeed = 0;
+            }
             else
             {
-
-
+                animator.SetBool("RightAction", false);
+                isBlocking = false;
             }
+
         }
 
         //animator.enabled = false;
@@ -163,6 +188,14 @@ public class AttackComponent : MonoBehaviour
         animator.enabled = !animator.enabled;
 
         AttackingCollision();
+
+        if (isAI)
+        {
+            navMeshAgent.enabled = true;
+        }
+
+
+
     }
 
 
