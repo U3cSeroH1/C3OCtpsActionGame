@@ -69,7 +69,6 @@
     <Compile Include="Assets\EnemyReWork\CharacterComponent.cs" />
     <Compile Include="Assets\EnemyReWork\EnemyCharacterComponent.cs" />
     <Compile Include="Assets\EnemyReWork\PlayerCharacterComponent.cs" />
-    <Compile Include="Assets\Mixamo\Melee Axe Pack\Demo\CameraScroll.cs" />
     <Compile Include="Assets\MovementVR.cs" />
     <Compile Include="Assets\Scripts\AttackComponent.cs" />
     <Compile Include="Assets\Scripts\CameraRotator.cs" />
