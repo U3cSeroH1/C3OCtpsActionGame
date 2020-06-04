@@ -135,7 +135,7 @@ public class PlayerMovement : MonoBehaviour
         //}
 
 
-        MovementSpeed = 5f;
+        //MovementSpeed = 5f;
 
 
 

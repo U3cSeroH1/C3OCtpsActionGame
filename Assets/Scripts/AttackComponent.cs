@@ -29,10 +29,13 @@ public class AttackComponent : MonoBehaviour
     public bool AIFire2 = false;
 
 
+    public float ChacePMSpeed = 0;
+
+
     // Start is called before the first frame update
     void Start()
     {
-
+        ChacePMSpeed = playerMovement.MovementSpeed;
     }
 
     // Update is called once per frame
@@ -71,7 +74,7 @@ public class AttackComponent : MonoBehaviour
                     
                     lastMovingTime = Time.realtimeSinceStartup;
 
-                    navMeshAgent.enabled = false;
+                    //navMeshAgent.enabled = false;
 
 
                     animator.enabled = true;
@@ -129,7 +132,7 @@ public class AttackComponent : MonoBehaviour
             {
 
 
-
+                playerMovement.MovementSpeed = ChacePMSpeed;
                 lookAtMovingDirection.LookAtSpeed = 10f;
 
                 if (Input.GetButtonDown("Fire1"))
@@ -151,7 +154,7 @@ public class AttackComponent : MonoBehaviour
                     RightHandToolSlot.GetComponentInChildren<Collider>().enabled = true;
 
 
-                    //playerMovement.MovementSpeed = 0f;
+                    playerMovement.MovementSpeed = 0f;
                     lookAtMovingDirection.LookAtSpeed = 0;
 
                 }
@@ -192,14 +195,14 @@ public class AttackComponent : MonoBehaviour
 
     public void animaterDisabled()
     {
-        animator.enabled = false;
+        //animator.enabled = false;
 
         AttackingCollision();
 
-        if (isAI)
-        {
-            navMeshAgent.enabled = true;
-        }
+        //if (isAI)
+        //{
+        //    navMeshAgent.enabled = true;
+        //}
 
 
 
@@ -208,6 +211,9 @@ public class AttackComponent : MonoBehaviour
 
     public void AttackingCollision()
     {
+
+        if(RightHandToolSlot.GetComponentInChildren<Collider>().enabled)
+
         RightHandToolSlot.GetComponentInChildren<Collider>().enabled = !RightHandToolSlot.GetComponentInChildren<Collider>().enabled;
         
 

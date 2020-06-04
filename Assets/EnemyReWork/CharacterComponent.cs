@@ -38,7 +38,7 @@ public class CharacterComponent : MonoBehaviour
     public AIComponent aIComponent = null;
 
 
-
+    public bool fuckinstate = false;
 
 
     private void Start()
@@ -78,8 +78,8 @@ public class CharacterComponent : MonoBehaviour
 
 
 
-                KnockBackCalc(other.gameObject);
 
+                KnockBackCalc(other.gameObject);
 
             }
                         
