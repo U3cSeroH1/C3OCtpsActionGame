@@ -178,6 +178,8 @@ public class AttackComponent : MonoBehaviour
             {
                 animator.SetBool("RightAction", false);
                 isBlocking = false;
+
+                LeftHandToolSlot.GetComponentInChildren<Collider>().enabled = false;
             }
 
         }

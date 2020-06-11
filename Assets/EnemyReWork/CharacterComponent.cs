@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using System.Net;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class CharacterComponent : MonoBehaviour
 {
 
     public GameObject fuckthis = null;
+
+    public GameObject CharaDirectionRef = null;
+
 
     public Character character = null;
 
@@ -18,8 +22,6 @@ public class CharacterComponent : MonoBehaviour
     public float MP = 0;
 
     public bool TakedDamage;
-
-
 
 
     public Animator animator = null;
@@ -41,9 +43,14 @@ public class CharacterComponent : MonoBehaviour
     public bool fuckinstate = false;
 
 
+    public Slider HPbar = null;
+    public Slider STbar = null;
+
+
     private void Start()
     {
         HP = character.HP;
+        ST = character.ST;
     }
 
 
@@ -57,9 +64,34 @@ public class CharacterComponent : MonoBehaviour
 
         }
 
+        if (HP<=0)
+        {
+
+            Waiter("Death", 0.5f);
+
+        }
+
+        HPCalc();
+        STCalc();
     }
 
 
+    public virtual void HPCalc()
+    {
+        if (HP >= character.HP)
+        {
+
+        }
+
+
+    }
+
+    public virtual void STCalc()
+    {
+
+
+
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -69,17 +101,39 @@ public class CharacterComponent : MonoBehaviour
 
             if (other.gameObject.GetComponentInParent<ItemComponent>().ItemType.itemtype == Item.ItemType.ToolItem)
             {
-
-                animator.SetTrigger("TakeDamage");
-
-                HP -= other.gameObject.GetComponentInParent<ItemComponent>().ItemType.attack;
-
-                FlipStateComponentsForStaticMotion();
+                Debug.Log(other.gameObject.transform.parent.parent.parent.gameObject.name);
 
 
+                //相手と自分の相対の向き
+                float angle = Mathf.Abs(other.gameObject.transform.parent.parent.parent.gameObject.transform.rotation.eulerAngles.y - (CharaDirectionRef.transform.rotation.eulerAngles.y  ));
+                Debug.Log(Mathf.Abs(other.gameObject.transform.parent.parent.parent.gameObject.transform.rotation.eulerAngles.y - CharaDirectionRef.transform.rotation.eulerAngles.y));
 
 
-                KnockBackCalc(other.gameObject);
+                if (attackComponent.isBlocking && ((angle>=90) && (angle <= 270)))
+                {
+                    Debug.Log("うんち！ｗ");
+
+                    other.gameObject.transform.root.GetComponent<Animator>().SetTrigger("TakeDamage");
+
+                    ST -= other.gameObject.GetComponentInParent<ItemComponent>().ItemType.attack * 3f;
+
+                    other.gameObject.transform.root.GetComponent<CharacterComponent>().FlipStateComponentsForStaticMotion();
+                    
+                    other.gameObject.transform.root.GetComponent<CharacterComponent>().KnockBackCalc(other.gameObject);
+
+                }
+
+                else
+                {
+                    animator.SetTrigger("TakeDamage");
+
+                    HP -= other.gameObject.GetComponentInParent<ItemComponent>().ItemType.attack;
+
+                    FlipStateComponentsForStaticMotion();
+
+                    KnockBackCalc(other.gameObject);
+                }
+
 
             }
                         

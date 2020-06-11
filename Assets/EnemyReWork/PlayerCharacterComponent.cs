@@ -34,6 +34,25 @@ public class PlayerCharacterComponent : CharacterComponent
 
     }
 
+    public override void HPCalc()
+    {
+
+        HPbar.value = HP / character.HP;
+
+    }
+
+    public override void STCalc()
+    {
+        if (ST <= character.ST)
+        {
+            ST += 0.1f;
+        }
+
+
+        STbar.value = ST / character.ST;
+
+    }
+
 
 }
 

@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3826bc9c9d31a1145b2d44d4ec254971, type: 3}
   m_Name: TestEnemyChara
   m_EditorClassIdentifier: 
-  CharaName: TestEnemy
   HP: 100
+  ST: 100
+  MP: 100
