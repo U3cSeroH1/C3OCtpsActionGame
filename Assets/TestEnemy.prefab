@@ -719,6 +719,7 @@ GameObject:
   - component: {fileID: 4210678683230109721}
   - component: {fileID: 5817420400324662823}
   - component: {fileID: 1168892096}
+  - component: {fileID: 1168892103}
   m_Layer: 0
   m_Name: TestEnemy
   m_TagString: Untagged
@@ -770,7 +771,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 82c11600c409013499b8087a109016fd, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 1
   m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -793,7 +794,7 @@ MonoBehaviour:
   DetectionObjList: []
   DetectPlayer: 0
   CautionPlayer: 0
-  attackComponent: {fileID: 0}
+  attackComponent: {fileID: 1168892103}
   points:
   - {fileID: 0}
   - {fileID: 0}
@@ -846,18 +847,50 @@ MonoBehaviour:
   m_GameObject: {fileID: 7225182986675597754}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b788408cacec06145b8a925846a472d1, type: 3}
+  m_Script: {fileID: 11500000, guid: dfc09aae5bdc60642aa77fe94acb3889, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fuckthis: {fileID: 7225182986675597754}
+  CharaDirectionRef: {fileID: 7225182985558153250}
   character: {fileID: 11400000, guid: e0715607c5c161040862cd359521f09f, type: 2}
   HP: 0
   ST: 0
   MP: 0
   TakedDamage: 0
   animator: {fileID: 4210678683230109723}
+  attackComponent: {fileID: 1168892103}
+  lookAtMovingDirection: {fileID: 0}
+  playerMovement: {fileID: 0}
   navMesh: {fileID: 4210678683230109721}
   aIComponent: {fileID: 4210678683230109719}
+  fuckinstate: 0
+  HPbar: {fileID: 0}
+  STbar: {fileID: 0}
+--- !u!114 &1168892103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7225182986675597754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a69a85425d73ad148b6e98452de48fbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMovement: {fileID: 0}
+  lookAtMovingDirection: {fileID: 0}
+  animator: {fileID: 4210678683230109723}
+  CoolTime: 0.5
+  lastMovingTime: 0
+  RightHandToolSlot: {fileID: 1639604784640036050}
+  LeftHandToolSlot: {fileID: 0}
+  isBlocking: 0
+  isAI: 1
+  navMeshAgent: {fileID: 4210678683230109721}
+  AIFire1: 0
+  AIFire2: 0
+  ChacePMSpeed: 0
 --- !u!1001 &1584856602174702919
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -930,6 +963,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 234048039846562792, guid: 40e6dc502591d1a40a0cc10e049898b1,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.448
+      objectReference: {fileID: 0}
     - target: {fileID: 234048039846562793, guid: 40e6dc502591d1a40a0cc10e049898b1,
         type: 3}
       propertyPath: m_Layer
@@ -943,13 +981,19 @@ PrefabInstance:
     - target: {fileID: 234048040168538703, guid: 40e6dc502591d1a40a0cc10e049898b1,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40e6dc502591d1a40a0cc10e049898b1, type: 3}
 --- !u!4 &1639604784640036051 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 234048038984632724, guid: 40e6dc502591d1a40a0cc10e049898b1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1584856602174702919}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1639604784640036050 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 234048038984632725, guid: 40e6dc502591d1a40a0cc10e049898b1,
     type: 3}
   m_PrefabInstance: {fileID: 1584856602174702919}
   m_PrefabAsset: {fileID: 0}

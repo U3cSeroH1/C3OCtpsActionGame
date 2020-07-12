@@ -20,6 +20,6 @@ MonoBehaviour:
   ItemSize: 0
   ItemWeight: 0
   Recipe: []
-  attack: 10
+  attack: 45
   block: 0
   HP_effect: 0
