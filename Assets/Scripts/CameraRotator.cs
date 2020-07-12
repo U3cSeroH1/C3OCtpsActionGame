@@ -38,15 +38,16 @@ public class CameraRotator : MonoBehaviour
     private void rotateCamera()
     {
         //Vector3でX,Y方向の回転の度合いを定義
-        Vector3 angle = new Vector3(0, Input.GetAxis("Mouse X") * rotateSpeed, 0);
+        Vector3 angle1 = new Vector3(0, Input.GetAxis("Mouse X") * rotateSpeed, 0);
+        Vector3 angle2 = new Vector3(-Input.GetAxis("Mouse Y") * rotateSpeed, 0,0);
 
         //transform.RotateAround()をしようしてメインカメラを回転させる
 
-        transform.Rotate(angle, Space.World);
+        transform.Rotate(angle1, Space.World);
 
-        //mainCamera.transform.Rotate(angle, Space.World);
+        mainCamera.transform.Rotate(angle2, Space.Self);
 
 
-        Character.transform.Rotate(-angle, Space.World);
+        Character.transform.Rotate(-angle1, Space.World);
     }
 }

@@ -115,7 +115,7 @@ public class CharacterComponent : MonoBehaviour
 
                     other.gameObject.transform.root.GetComponent<Animator>().SetTrigger("TakeDamage");
 
-                    ST -= other.gameObject.GetComponentInParent<ItemComponent>().ItemType.attack * 3f;
+                    ST -= other.gameObject.GetComponentInParent<ItemComponent>().ItemType.attack * 1.5f;
 
                     other.gameObject.transform.root.GetComponent<CharacterComponent>().FlipStateComponentsForStaticMotion();
                     
