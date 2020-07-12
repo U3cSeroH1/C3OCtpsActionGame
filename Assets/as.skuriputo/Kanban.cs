@@ -6,6 +6,7 @@ public class Kanban : MonoBehaviour
 {
     private GameObject player;
     public GameObject text;
+    [TextArea(1, 6)]
     public string message;
     
 
