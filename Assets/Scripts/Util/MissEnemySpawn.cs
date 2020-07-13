@@ -10,6 +10,8 @@ public class MissEnemySpawn : MonoBehaviour
     public GameObject SpawnObject = null;
 
 
+    public bool imded = false;
+
     public float cooltime = 100f;
     public float deltatime = 0f;
 
@@ -40,6 +42,11 @@ public class MissEnemySpawn : MonoBehaviour
             deltatime = 0;
         }
 
+
+        if (imded)
+        {
+            Destroy(gameObject);
+        }
 
     }
 

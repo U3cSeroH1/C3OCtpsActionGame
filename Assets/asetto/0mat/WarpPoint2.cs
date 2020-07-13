@@ -10,5 +10,8 @@ public class WarpPoint2 : MonoBehaviour
         // 「0.5f」のように「小数」を使用する場合には必ず「f」を書くこと（ポイント）
         // 「f」は「float（浮動小数点）」の略
         other.gameObject.transform.position = new Vector3(1220, 175, -1004);
+
+        //RenderSettings.fogDensity = 0.0003f;
+
     }
 }
